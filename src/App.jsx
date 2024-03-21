@@ -1,28 +1,26 @@
-
-import './App.css'
-import Header from './components/Header'
-import BasicMenu from './components/BasicMenu'
-import { useState } from 'react'
+import {Header} from './components/Header'
+import React from 'react'
 import Footer from './components/Footer'
+import { ThemeProvider } from './providers/ThemeProvider'
+import Navbar from './components/Navbar'
+import Content from '../pages/Content'
+import Counter from './components/Counter'
+
 
 
 export default function App() {
-  const[tab,setTab]=useState('content')
-
 
   return(
   <div>
-    <Header/>
-    <main>
-    <h2>
-      Task#3
-    </h2>
-    <BasicMenu/> 
-    </main>
     
+    <ThemeProvider >
+    <Navbar/>
+    <Header/>
+    <Content/>
+    <Counter/>
+    </ThemeProvider>
     <Footer/>
+    
   </div>
 )
 }
-
-

@@ -8,10 +8,12 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 export default function Footer() {
   const [value, setValue] = React.useState(0);
+  
+
 
   return (
     <div style={{ position: 'fixed', bottom: 0, width: '100%' ,  }}>
-      <Box sx={{ width: 1280 }}>
+      <Box sx={{ width: 1980 }}>
         <BottomNavigation
           showLabels
           value={value}
