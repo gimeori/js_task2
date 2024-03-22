@@ -14,7 +14,7 @@ export default function Navbar() {
       <AppBar position="static">
         <Toolbar>
           
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{ justifyContent: 'center'}}>
           Современные средства разработки Web-приложений
           </Typography>
           <Button component={Link} to="/" color="inherit">Home</Button>
