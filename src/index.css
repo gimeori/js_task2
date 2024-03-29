@@ -59,3 +59,11 @@ button:focus-visible {
   margin: 250px auto 0 auto;
   text-align: center;
  }   
+
+ ul{
+  padding-top: 10rem;
+  list-style-type: none;
+ }
+ ul li{
+  padding-left: 2rem;
+ }

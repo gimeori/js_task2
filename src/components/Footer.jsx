@@ -13,19 +13,7 @@ export default function Footer() {
 
   return (
     <div style={{ position: 'fixed', bottom: 0, width: '100%' ,  }}>
-      <Box sx={{ width: 1980 }}>
-        <BottomNavigation
-          showLabels
-          value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-        >
-          <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-          <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-          <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
-        </BottomNavigation>
-      </Box>
+      
     </div>
   );
 }

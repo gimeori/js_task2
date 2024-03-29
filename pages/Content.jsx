@@ -1,6 +1,7 @@
 import React from 'react'
 import Login from '../pages/Login'
 import About from '../pages/About'
+import Request from '../pages/Request'
 import { Routes,Route } from 'react-router-dom'
 import BasicMenu from '../pages/BasicMenu'
 
@@ -10,6 +11,7 @@ export default function Content() {
     <div>
     <Routes>
     <Route path="/" element={<BasicMenu/>}/>
+    <Route path="/requests" element={<Request/>}/>
     <Route path="/about" element={<About/>}/>
     <Route path="/login" element={<Login/>}/>
     </Routes>

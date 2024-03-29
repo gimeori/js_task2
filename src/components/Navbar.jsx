@@ -18,6 +18,7 @@ export default function Navbar() {
           Современные средства разработки Web-приложений
           </Typography>
           <Button component={Link} to="/" color="inherit">Home</Button>
+          <Button component={Link} to="/requests" color="inherit">Authors</Button>
           <Button component={Link} to="/about" color="inherit">About</Button>
           <Button component={Link} to="/login" color="inherit">Login</Button>
         </Toolbar>
