@@ -1,6 +1,9 @@
 import React, {useState,useEffect} from 'react'
+import Table from '../src/components/Table'
 
-export default function Request() {
+
+
+export default function Authors() {
   const[authors,setAuthors]=useState([])
 
 
@@ -19,6 +22,12 @@ export default function Request() {
         <ul>
           {authors.map(author => <li key={author.id}>{author.name}, id:{author.id}</li>)}
         </ul>
+        <div>
+        <Table/>
+
+        </div>
+        
+        
     </div>
   )
 }

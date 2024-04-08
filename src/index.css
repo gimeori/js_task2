@@ -61,9 +61,47 @@ button:focus-visible {
  }   
 
  ul{
-  padding-top: 10rem;
+  padding-top: 3rem;
   list-style-type: none;
  }
  ul li{
   padding-left: 2rem;
+ }
+
+ .page-container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+ }
+
+ .content-wrap{
+  flex:1;
+ }
+
+ .table-container {
+  overflow-x: auto;
+}
+
+.w3-table-all tr > *:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background-color: white;
+}
+
+
+
+
+ @media(min-width:1200px){
+
+ }
+ @media(min-width:775px){
+  
+ }
+ @media(min-width:565px){
+  
+ }
+ @media(min-width:400px){
+  
  }

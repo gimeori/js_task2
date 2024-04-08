@@ -1,19 +1,35 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import './Footer.css'
+import {Link } from 'react-router-dom'
 
-export default function Footer() {
-  const [value, setValue] = React.useState(0);
-  
-
+export const Footer = () => {
 
   return (
-    <div style={{ position: 'fixed', bottom: 0, width: '100%' ,  }}>
-      
+    <div className='main-footer'>
+        <div className='container'>
+        
+          <div className='row'>
+            <div className='col'>
+              <h5>web develop</h5>
+              <ul className='list-unstyled'>
+                <li>+7-123-123-2222</li>
+                <li>Barnaul, Russia</li>
+              </ul>
+            </div>
+            <div className='col'>
+              <h5>Tasks</h5>
+              <ul className='list-unstyled'>
+                <li><Link to="/authors">List of authors</Link> </li>
+                <li><Link to="/login">Add author</Link></li>
+              </ul>
+            </div>
+
+          </div>
+          <hr></hr>
+          <div className='col-sm'>
+            &copy;{new Date().getFullYear()} All right reserved
+          </div>
+        </div>
     </div>
-  );
+  )
 }

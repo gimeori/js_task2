@@ -9,7 +9,6 @@ export default function Login() {
   } = useForm();
 
   const onSubmit = useCallback((data) => {
-    // Отправка данных на сервер
   }, []);
 
   useEffect(() => {
@@ -33,7 +32,7 @@ export default function Login() {
         input.value = '';
       }
     };
-    //запрос delete
+    //delete
     const handleDeleteAuthorClick = async () => {
       const input = document.getElementById('inputid');
       const id = input.value;
@@ -102,15 +101,12 @@ export default function Login() {
     };
   }, []);
 
-
-
-
   return (
     <div className='login-container'>
-      <h3>Автор</h3>
+      <h3 style={{color: 'white'}}>Автор</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <label>Имя
+          <label style={{color: 'white'}}>Имя
             <input id="inputname" {...register('login', { required: "укажите имя", minLength: { value: 2, message: 'минимум 2 знака' } })} />
           </label>
           <div style={{ height: 40 }}>
@@ -119,7 +115,7 @@ export default function Login() {
         </div>
 
         <div>
-          <label>id
+          <label style={{color: 'white'}}>id
             <input id="inputid" {...register('passwd', { required: "укажите id автора", minLength: { value: 1, message: 'минимум 1 знак' } })} />
           </label>
           <div style={{ height: 40 }}>
