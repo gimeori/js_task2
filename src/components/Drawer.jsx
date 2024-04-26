@@ -28,7 +28,7 @@ export default function TempDrawer() {
     const DrawerList = (
       <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
         <List>
-          {['lab1', 'lab2', 'lab3', 'lab4'].map((text, index) => (
+          {['lab1', 'lab2', 'lab3', 'lab4', 'lab9'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton onClick={() => handleLabClick(text)}>
                 <ListItemIcon>

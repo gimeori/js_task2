@@ -1,48 +1,41 @@
-import React, { useMemo, useState, useRef, useEffect} from 'react';
-import { getCoreRowModel, useReactTable, flexRender, getSortedRowModel } from '@tanstack/react-table';
+import React, { useMemo, useState, useRef, useEffect } from 'react';
+import { getCoreRowModel, getSortedRowModel } from '@tanstack/react-table';
 import {
     MaterialReactTable,
     useMaterialReactTable,
-  } from 'material-react-table';
-import DATA from '../datatable';
+} from 'material-react-table';
 
+const response = await fetch('http://127.0.0.1:8000/authors/?skip=0&limit=10')
+const authors = await response.json()
 
 const columns = [
     {
-        accessorKey: 'task',
-        header: "Task",
-        footer: "Task",
+        accessorKey: 'id',
+        header: "ID",
     },
     {
-        accessorKey: 'due',
-        header: "Due",
-        footer: "Due",
-    },
-    {
-        accessorKey: 'notes',
-        header: "Notes",
-        footer: "Notes",
+        accessorKey: 'name',
+        header: "Name",
     },
 
 ]
 const Table = () => {
-    const [sorting, setSorting]= useState([]) 
+    const [sorting, setSorting] = useState([])
+    const rowVirtualizerRef = useRef(null)
+    const [row, setRow] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
-    const rowVirtualizerRef=useRef(null)
-    const [row,setRow]=useState([])
-    const [isLoading, setIsLoading]=useState(true)
-
-    const data=useMemo(()=> DATA, [])
+    const data = useMemo(() => authors, [])
     useEffect(() => {
-        if (typeof window !== 'undefined'){
-            setRow(DATA);
+        if (typeof window !== 'undefined') {
+            setRow(authors);
             setIsLoading(false);
         }
     }, []);
-    useEffect(()=> {
-        try{
+    useEffect(() => {
+        try {
             rowVirtualizerRef.current?.scrollToIndex?.(0);
-        } catch (error){
+        } catch (error) {
             console.error(error);
         }
     }, [sorting]);
@@ -67,65 +60,24 @@ const Table = () => {
         enableColumnOrdering: true,
         muiTableBodyProps: {
             sx: {
-              
-              '& tr > *:first-of-type': {
-                position: 'sticky',
-                left: 0,
-                zIndex: 1,
-                backgroundColor: 'white',
-              },
+
+                '& tr > *:first-of-type': {
+                    position: 'sticky',
+                    left: 0,
+                    zIndex: 1,
+                    backgroundColor: 'white',
+                },
             },
-          },
+        },
 
     });
-
-    console.log(table.getHeaderGroups());
     return (
-    <div className='w3-container'>
-        <div className="table-container">
-        {/* <table className='w3-table-all'>
-            <thead>
-            {table.getHeaderGroups().map(headerGroup =>(
-                <tr key={headerGroup.id}>
-                        {headerGroup.headers.map(header => <th key={header.id} onClick={header.column.getToggleSortingHandler()}>
-                            <div>
-                            {flexRender(header.column.columnDef.header, header.getContext())}
-                            {
-                                {
-                                    asc: '🔼',desc:'🔽',
-                                }[header.column.getIsSorted() ?? null]
-                            }
-                            </div>
-                        </th>)}
-                </tr>
-            ))}
-            </thead>
-
-            <tbody>
-                {table.getRowModel().rows.map(row => (
-                    <tr key={row.id}>
-                        {row.getVisibleCells().map(cell => (
-                            <td key={cell.id}>
-                                {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                            </td>
-                        ))}
-                    </tr>
-                ))}
-            </tbody>
-            <tfoot>
-            {table.getFooterGroups().map(footerGroup =>(
-                <tr key={footerGroup.id}>
-                        {footerGroup.headers.map(header => <th key={header.id}>
-                            {flexRender(header.column.columnDef.header, header.getContext())}
-                        </th>)}
-                </tr>
-            ))}
-            </tfoot>
-        </table> */}
-        <MaterialReactTable table ={table}/>
+        <div className='w3-container'>
+            <div className="table-container">
+                <MaterialReactTable table={table} />
+            </div>
         </div>
-    </div>
-);
+    );
 };
 export default Table;
 
